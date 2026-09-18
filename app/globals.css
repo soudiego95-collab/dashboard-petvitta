@@ -1,0 +1,66 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+@import 'shadcn/tailwind.css';
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  color-scheme: light;
+  --background: oklch(0.98 0.006 170);
+  --foreground: oklch(0.24 0.04 175);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.24 0.04 175);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.24 0.04 175);
+  --primary: oklch(0.48 0.12 175);
+  --primary-foreground: oklch(0.98 0.01 175);
+  --secondary: oklch(0.94 0.025 170);
+  --secondary-foreground: oklch(0.3 0.05 175);
+  --muted: oklch(0.95 0.015 170);
+  --muted-foreground: oklch(0.53 0.04 170);
+  --accent: oklch(0.94 0.025 170);
+  --accent-foreground: oklch(0.3 0.05 175);
+  --destructive: oklch(0.62 0.16 25);
+  --border: oklch(0.9 0.025 170);
+  --input: oklch(0.9 0.025 170);
+  --ring: oklch(0.48 0.12 175);
+  --radius: 0.75rem;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+}
+
+@layer base {
+  * { @apply border-border outline-ring/50; }
+  body { @apply bg-background text-foreground; font-family: Arial, Helvetica, sans-serif; }
+  button, select { cursor: pointer; }
+}
+
+.recharts-tooltip-cursor { fill: rgba(15, 118, 110, 0.04); }
+.recharts-default-tooltip { box-shadow: 0 6px 20px rgba(23, 51, 51, .08); }
+svg { display: inline-block; }
+[data-icon='inline-start'] { margin-right: .4rem; }
+[data-icon='inline-end'] { margin-left: .4rem; }
+@media (max-width: 640px) { .recharts-xAxis .recharts-cartesian-axis-tick:nth-child(even) { display: none; } }
+
+.dark { color-scheme: dark; }
+.dark body { background: #122424; color: #edf7f3; }
+.dark :root { color-scheme: dark; }
